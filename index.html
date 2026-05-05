@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Personalized Treatment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f7fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0077ff, #00c6ff);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        nav {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #0077ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Machine Learning for Personalized Treatment Plans</h1>
+    <p>AI-driven healthcare solutions for better patient outcomes</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#model">Model</a>
+    <a href="#demo">Demo</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <div class="card">
+        <h2>About the Project</h2>
+        <p>
+            This project uses Machine Learning to recommend personalized treatment plans based on patient data.
+            It analyzes symptoms, age, medical history, and predicts the best treatment approach.
+        </p>
+    </div>
+</section>
+
+<section id="model">
+    <div class="card">
+        <h2>How It Works</h2>
+        <ul>
+            <li>Data Collection (Patient Records)</li>
+            <li>Preprocessing & Cleaning</li>
+            <li>ML Model Training (e.g., Decision Tree / Random Forest)</li>
+            <li>Prediction of Treatment Plan</li>
+        </ul>
+    </div>
+</section>
+
+<section id="demo">
+    <div class="card">
+        <h2>Demo Prediction</h2>
+
+        <input type="number" id="age" placeholder="Enter Age">
+        <input type="text" id="symptom" placeholder="Enter Symptom">
+
+        <br><br>
+        <button class="btn" onclick="predict()">Get Treatment</button>
+
+        <h3 id="result"></h3>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="card">
+        <h2>Contact</h2>
+        <p>Email: yourname@email.com</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 ML Healthcare Project</p>
+</footer>
+
+<script>
+    function predict() {
+        let age = document.getElementById("age").value;
+        let symptom = document.getElementById("symptom").value;
+
+        let result = "";
+
+        if (symptom.toLowerCase().includes("fever")) {
+            result = "Recommended: Paracetamol + Rest";
+        } else if (symptom.toLowerCase().includes("cough")) {
+            result = "Recommended: Cough Syrup + Warm Fluids";
+        } else {
+            result = "Consult a specialist for accurate treatment.";
+        }
+
+        document.getElementById("result").innerText = result;
+    }
+</script>
+
+</body>
+</html>
