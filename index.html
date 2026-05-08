@@ -1,152 +1,471 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Personalized Treatment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #f5f7fa;
-        }
+<title>ML Personalized Treatment Plans</title>
 
-        header {
-            background: linear-gradient(135deg, #0077ff, #00c6ff);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        nav {
-            background: #222;
-            padding: 10px;
-            text-align: center;
-        }
+<style>
 
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        section {
-            padding: 40px;
-        }
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+    overflow-x:hidden;
+}
 
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+/* LOGIN PAGE */
 
-        .btn {
-            padding: 10px 20px;
-            background: #0077ff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+#loginPage{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: white;
-        }
+.login-box{
+    background:white;
+    width:350px;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+    animation:fadeIn 1s ease;
+}
 
-        input {
-            padding: 10px;
-            margin: 5px;
-            width: 200px;
-        }
-    </style>
+.login-box h1{
+    margin-bottom:10px;
+    color:#0077ff;
+}
+
+.login-box p{
+    color:gray;
+    margin-bottom:25px;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:#f1f1f1;
+    font-size:15px;
+}
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-box button:hover{
+    transform:scale(1.03);
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* MAIN WEBSITE */
+
+#mainWebsite{
+    display:none;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
+    color:white;
+    padding:80px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+header p{
+    font-size:18px;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#111827;
+    padding:15px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:10px 20px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00c6ff;
+}
+
+/* SECTIONS */
+
+section{
+    padding:60px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:35px;
+    color:#111827;
+}
+
+/* CARDS */
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom:30px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.feature-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:scale(1.03);
+}
+
+.feature-card h3{
+    color:#0077ff;
+    margin-bottom:10px;
+}
+
+/* DEMO */
+
+.demo-box{
+    text-align:center;
+}
+
+.demo-box input{
+    width:250px;
+    padding:12px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    background:#eef2f7;
+    font-size:15px;
+}
+
+.demo-box button{
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.demo-box button:hover{
+    transform:scale(1.05);
+}
+
+#result{
+    margin-top:25px;
+    font-size:20px;
+    font-weight:600;
+    color:#0077ff;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- LOGIN PAGE -->
+
+<div id="loginPage">
+
+    <div class="login-box">
+
+        <h1>ML Project Login</h1>
+        <p>Machine Learning Healthcare System</p>
+
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+
+        <p id="error"></p>
+
+    </div>
+
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainWebsite">
+
 <header>
     <h1>Machine Learning for Personalized Treatment Plans</h1>
-    <p>AI-driven healthcare solutions for better patient outcomes</p>
+    <p>AI-powered healthcare solutions for smarter treatment recommendations</p>
 </header>
 
 <nav>
-    <a href="#about">About</a>
-    <a href="#model">Model</a>
-    <a href="#demo">Demo</a>
-    <a href="#contact">Contact</a>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#model">Model</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
 <section id="about">
+
+    <h2 class="section-title">About Project</h2>
+
     <div class="card">
-        <h2>About the Project</h2>
         <p>
-            This project uses Machine Learning to recommend personalized treatment plans based on patient data.
-            It analyzes symptoms, age, medical history, and predicts the best treatment approach.
+            This project uses Machine Learning algorithms to recommend personalized treatment plans using patient health data.
+            The system analyzes symptoms, age, blood pressure, sugar level, cholesterol, BMI, and heart rate to provide smart healthcare predictions.
         </p>
     </div>
+
+</section>
+
+<section id="features">
+
+    <h2 class="section-title">Key Features</h2>
+
+    <div class="features">
+
+        <div class="feature-card">
+            <h3>AI Prediction</h3>
+            <p>Predicts treatment recommendations using ML algorithms.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Health Analysis</h3>
+            <p>Analyzes patient parameters for risk detection.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Fast Results</h3>
+            <p>Provides instant predictions and suggestions.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Modern Dashboard</h3>
+            <p>Interactive and attractive healthcare interface.</p>
+        </div>
+
+    </div>
+
 </section>
 
 <section id="model">
+
+    <h2 class="section-title">How It Works</h2>
+
     <div class="card">
-        <h2>How It Works</h2>
-        <ul>
-            <li>Data Collection (Patient Records)</li>
-            <li>Preprocessing & Cleaning</li>
-            <li>ML Model Training (e.g., Decision Tree / Random Forest)</li>
-            <li>Prediction of Treatment Plan</li>
+
+        <ul style="line-height:2;">
+            <li>✔ Data Collection from Patient Records</li>
+            <li>✔ Data Cleaning & Preprocessing</li>
+            <li>✔ Model Training using Random Forest / Decision Tree</li>
+            <li>✔ Prediction & Personalized Treatment Recommendation</li>
         </ul>
+
     </div>
+
 </section>
 
 <section id="demo">
-    <div class="card">
-        <h2>Demo Prediction</h2>
 
-        <input type="number" id="age" placeholder="Enter Age">
-        <input type="text" id="symptom" placeholder="Enter Symptom">
+    <h2 class="section-title">Live Demo Prediction</h2>
 
+    <div class="card demo-box">
+
+        <input type="number" id="age" placeholder="Age">
+        <input type="text" id="symptom" placeholder="Symptoms">
+        <br>
+
+        <input type="number" id="bp" placeholder="Blood Pressure">
+        <input type="number" id="sugar" placeholder="Sugar Level">
+        <br>
+
+        <input type="number" id="cholesterol" placeholder="Cholesterol">
+        <input type="number" id="bmi" placeholder="BMI">
         <br><br>
-        <button class="btn" onclick="predict()">Get Treatment</button>
+
+        <button onclick="predict()">Predict Treatment</button>
 
         <h3 id="result"></h3>
+
     </div>
+
 </section>
 
 <section id="contact">
-    <div class="card">
-        <h2>Contact</h2>
-        <p>Email: vedantbanu13@gmail.com</p>
+
+    <h2 class="section-title">Contact</h2>
+
+    <div class="card" style="text-align:center;">
+
+        <h3>Email</h3>
+        <p>vedantbanu13@gmail.com</p>
+
     </div>
+
 </section>
 
 <footer>
-    <p>© 2026 ML Healthcare Project</p>
+    <p>© 2026 ML Healthcare Project | Designed with ❤️</p>
 </footer>
 
+</div>
+
 <script>
-    function predict() {
-        let age = document.getElementById("age").value;
-        let symptom = document.getElementById("symptom").value;
 
-        let result = "";
+/* LOGIN FUNCTION */
 
-        if (symptom.toLowerCase().includes("fever")) {
-            result = "Recommended: Paracetamol + Rest";
-        } else if (symptom.toLowerCase().includes("cough")) {
-            result = "Recommended: Cough Syrup + Warm Fluids";
-        } else {
-            result = "Consult a specialist for accurate treatment.";
-        }
+function login(){
 
-        document.getElementById("result").innerText = result;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if(username === "MLProject" && password === "0987654321"){
+
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainWebsite").style.display = "block";
+
+    } else {
+
+        document.getElementById("error").innerText = "Invalid Username or Password";
+
     }
+
+}
+
+/* PREDICTION FUNCTION */
+
+function predict(){
+
+    let symptom = document.getElementById("symptom").value.toLowerCase();
+    let sugar = document.getElementById("sugar").value;
+    let bp = document.getElementById("bp").value;
+
+    let result = "";
+
+    if(symptom.includes("fever")){
+
+        result = "🩺 Recommended: Paracetamol + Rest + Hydration";
+
+    }
+    else if(symptom.includes("cough")){
+
+        result = "🩺 Recommended: Cough Syrup + Warm Fluids";
+
+    }
+    else if(sugar > 180){
+
+        result = "🩺 High Sugar Detected → Diabetes Specialist Consultation";
+
+    }
+    else if(bp > 140){
+
+        result = "🩺 High BP Detected → Lifestyle Changes + BP Monitoring";
+
+    }
+    else{
+
+        result = "🩺 General Checkup Recommended for Accurate Treatment";
+
+    }
+
+    document.getElementById("result").innerHTML = result;
+
+}
+
 </script>
 
 </body>
